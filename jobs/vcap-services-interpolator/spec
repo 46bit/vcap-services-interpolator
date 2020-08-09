@@ -1,0 +1,43 @@
+---
+name: vcap-services-interpolator
+
+description: 'Imitates CredHub to provide secret values without exposing them to CF API users'
+
+templates:
+  bpm.yml.erb: config/bpm.yml
+  server_cert.crt.erb: config/certs/server_cert.crt
+  server_key.key.erb: config/certs/server_key.key
+  instance_identity_ca.crt.erb: config/certs/instance_identity_ca.crt
+
+packages:
+  - vcap-services-interpolator
+
+properties:
+  port:
+    default: 8844
+
+  tls.server_cert:
+    description: ''
+
+  tls.server_key:
+    description: ''
+
+  tls.instance_identity_ca:
+    description: ''
+
+  credhub.port:
+    description: ''
+
+  credhub.ca_certificate:
+    description: ''
+
+  credhub.internal_url:
+    description: ''
+
+provides:
+- name: credhub
+  type: credhub
+  properties:
+  - credhub.port
+  - credhub.ca_certificate
+  - credhub.internal_url

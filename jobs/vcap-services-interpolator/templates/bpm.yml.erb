@@ -1,0 +1,9 @@
+---
+processes:
+  - name: vcap-services-interpolator
+    executable: /var/vcap/packages/vcap-services-interpolator/bin/vcap-services-interpolator
+    env:
+      PORT: '<%= p('port') %>'
+      SERVER_CERT_PATH: config/certs/server_cert.crt
+      SERVER_KEY_PATH: config/certs/server_key.key
+      INSTANCE_IDENTITY_CA_PATH: config/certs/instance_identity_ca.crt

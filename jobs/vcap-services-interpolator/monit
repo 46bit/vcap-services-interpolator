@@ -1,0 +1,6 @@
+check process vcap-services-interpolator
+  with pidfile /var/vcap/sys/run/bpm/vcap-services-interpolator/vcap-services-interpolator.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start vcap-services-interpolator"
+    with timeout 60 seconds
+  stop program "/var/vcap/jobs/bpm/bin/bpm stop vcap-services-interpolator"
+  group vcap

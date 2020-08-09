@@ -1,0 +1,8 @@
+---
+name: vcap-services-interpolator
+
+dependencies:
+  - golang
+
+files:
+  - vcap-services-interpolator/**/*
